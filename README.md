@@ -1,0 +1,2 @@
+# PythonCurrency
+Basic currency implementation
