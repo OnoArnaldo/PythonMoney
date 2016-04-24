@@ -1,5 +1,5 @@
-# PythonCurrency
-Basic currency implementation
+# PythonMoney
+Basic money implementation
 
 ## Usage
 
