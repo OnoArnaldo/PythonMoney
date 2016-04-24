@@ -3,9 +3,6 @@ Basic money implementation
 
 ## Usage
 
-It uses [Babel](http://babel.pocoo.org/en/latest/) library to get the string representation.
-If you don't want to install Babel, remove the method `to_str`.
-
 ###### Basic usage
 ```
 from money import Money
@@ -37,5 +34,5 @@ for money in brl_10.split(3):
 print (brl_10.to_float())      # 10.00
 
 # Get string value based on locale
-print (brl_10.to_str('pt_BR')) # R$10,00
+print (brl_10.to_str('pt_BR')) # '10.00'
 ```

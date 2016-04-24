@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
-from babel.numbers import format_currency, format_decimal
 from decimal import Decimal
 
 
 class Money(object):
     default_currency = ''
     default_precision = 0
+    default_locale = ''
 
     def __init__(self, amount=0, precision=None, currency=None):
         self._amount = amount
@@ -46,11 +46,10 @@ class Money(object):
     def to_float(self):
         return self.amount / float(10**self.precision)
 
-    def to_str(self, locale='', with_symbol=True):
-        if with_symbol:
-            return format_currency(self.to_float(), self.currency, locale=locale)
-
-        return format_decimal(self.to_float(), locale=locale)
+    def to_str(self):
+        exp = Decimal(10) ** self.precision
+        ret = Decimal(self.amount) / exp
+        return '{:.{prec}f}'.format(ret, prec=self.precision)
 
     def add(self, amount):
         to_add = int(amount)
@@ -108,3 +107,19 @@ class Money(object):
         new_money = self.copy()
         new_money.multiply(other)
         return new_money
+
+    def __cmp__(self, other):
+        if isinstance(other, Money) and self._assert(other):
+            if self.amount > other.amount:
+                return 1
+            if self.amount < other.amount:
+                return -1
+
+            if self.remain > other.remain:
+                return 1
+            if self.remain < other.remain:
+                return -1
+
+            return 0
+
+        raise Exception('Objects are not comparable')
