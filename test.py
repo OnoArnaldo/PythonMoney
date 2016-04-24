@@ -10,7 +10,6 @@ class TestMoneyCreate(unittest.TestCase):
     def setUp(self):
         Money.default_currency = 'BRL'
         Money.default_precision = 2
-        Money.default_locale = 'pt_BR'
 
     def testDefault(self):
         money = Money()
@@ -36,7 +35,6 @@ class TestMoneyOperationBetweenMoney(unittest.TestCase):
     def setUp(self):
         Money.default_currency = 'BRL'
         Money.default_precision = 2
-        Money.default_locale = 'pt_BR'
 
     def testAddition(self):
         brl10 = Money(1000)
@@ -64,7 +62,6 @@ class TestMoneyOperation(unittest.TestCase):
     def setUp(self):
         Money.default_currency = 'BRL'
         Money.default_precision = 2
-        Money.default_locale = 'pt_BR'
 
     def testAddition(self):
         brl10 = Money(1000)
@@ -109,7 +106,6 @@ class TestMoneySplit(unittest.TestCase):
     def setUp(self):
         Money.default_currency = 'BRL'
         Money.default_precision = 2
-        Money.default_locale = 'pt_BR'
 
     def testSplit(self):
         money = Money(1000)
@@ -125,7 +121,6 @@ class TestMoneyCopy(unittest.TestCase):
     def setUp(self):
         Money.default_currency = 'BRL'
         Money.default_precision = 2
-        Money.default_locale = 'pt_BR'
 
     def testCopy(self):
         orig = Money(1000)

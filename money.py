@@ -6,7 +6,6 @@ from decimal import Decimal
 class Money(object):
     default_currency = ''
     default_precision = 0
-    default_locale = ''
 
     def __init__(self, amount=0, precision=None, currency=None):
         self._amount = amount
