@@ -31,8 +31,8 @@ for money in brl_10.split(3):
       # Money(amount=334, precision=2, currency="BRL")
 
 # Get float value
-print (brl_10.to_float())      # 10.00
+print (brl_10.to_float())    # 10.00
 
 # Get string value based on locale
-print (brl_10.to_str('pt_BR')) # '10.00'
+print (brl_10.to_str())     # '10.00'
 ```
